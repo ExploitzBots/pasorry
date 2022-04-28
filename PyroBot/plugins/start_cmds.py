@@ -78,7 +78,7 @@ def start_cmd(client, message):
 
 @Client.on_callback_query(filters.regex("gates1"))
 def freecmd(client, ok: CallbackQuery):
-    ok.message.edit_text("**List commands:**\n\n**➣ Stripe Auth ✅\n`/sp cc|m|y|cvv`\n\nStripe 1$ ❌\n`/ch cc|m|y|cvv`**", reply_markup=InlineKeyboardMarkup(
+    ok.message.edit_text("**List commands:**\n\n**➣ Stripe Auth ✅\n`/sp cc|m|y|cvv`\n\n➣ Stripe 1$ ❌\n`/ch cc|m|y|cvv`**", reply_markup=InlineKeyboardMarkup(
             [
                 [  # First row
                     InlineKeyboardButton(  # Generates a callback query when pressed
