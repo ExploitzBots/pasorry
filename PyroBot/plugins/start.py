@@ -59,7 +59,7 @@ def chk_cmd(client, message):
             cvc = splitter[3]
             ab  = ccn[0:6]
             
-            wait = message.reply("**Wait For Results...**")
+            wait = message.reply_to_message("**Wait For Results...**")
             #####################################################################
             try:
                 bin = requests.get(f"https://bins-ws-api.deta.dev/api/{ccn}").json()
