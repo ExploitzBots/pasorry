@@ -53,7 +53,7 @@ def main_cmd(client, message):
 def start_cmd(client, message):
   fname = message.from_user.first_name
   user_info = client.get_users(message.from_user.id)
-  message.reply_text(f"**Hya! {fname}**\n\nWhich option you want to choose?", reply_markup=InlineKeyboardMarkup(
+  message.reply_text(f"**Hy**\n\nWhich option you want to choose?", reply_markup=InlineKeyboardMarkup(
             [
                 [  # First row
                     InlineKeyboardButton(  # Generates a callback query when pressed
@@ -78,7 +78,7 @@ def start_cmd(client, message):
 
 @Client.on_callback_query(filters.regex("gates1"))
 def freecmd(client, ok: CallbackQuery):
-    ok.message.edit_text("**List commands:**\n\n**➣ Stripe (Payment Method)\n>> `/sp cc|m|y|cvv`\n☒ Status: ON ✅**", reply_markup=InlineKeyboardMarkup(
+    ok.message.edit_text("**List commands:**\n\n**➣ Stripe Auth ✅\n`/sp cc|m|y|cvv`\n\nStripe 1$ ❌\n`/ch cc|m|y|cvv`**", reply_markup=InlineKeyboardMarkup(
             [
                 [  # First row
                     InlineKeyboardButton(  # Generates a callback query when pressed
@@ -120,7 +120,7 @@ def tool(client, ok: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("beck"))
 def beck(client, ok: CallbackQuery):
-    ok.message.edit_text(f"**Hya! Again**\n\nWhich option you want to choose?", reply_markup=InlineKeyboardMarkup(
+    ok.message.edit_text(f"**Hy**\n\nWhich option you want to choose?", reply_markup=InlineKeyboardMarkup(
             [
                 [  # First row
                     InlineKeyboardButton(  # Generates a callback query when pressed
