@@ -162,15 +162,15 @@ def sp_cmd(client, message):
                 took = hm.elapsed.total_seconds()
                 took = str(took)
                 if "Your card's security code is incorrect." in ok or "Your card&#039;s security code is incorrect" in ok or "Your card\u0027s security code is incorrect." in ok:
-                  wait.edit(f"**CC: `{cc}`\nStatus: Approved ✅\nResult: CCN!\nGateway: Stripe Auth\n━━━━━ Bin Data ━━━━━\nBin: {ab}\nType: {vendor} - {type} - {level}\nBank: {bank}\nCountry: {country} - {flag}\n━━━━━ Other Details ━━━━━\nTime: {took}\nChecked By {fname}\n__Bot: @CardChkBot__**")
+                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Approved ✅**\n--Result--: **CCN!** [__Your card's security code is incorrect.__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                 elif "Your card has insufficient funds." in ok:
-                  wait.edit(f"**CC: `{cc}`\nStatus: Approved ✅\nResult: CVV Matched\nGateway: Stripe Auth\n━━━━━ Bin Data ━━━━━\nBin: {ab}\nType: {vendor} - {type} - {level}\nBank: {bank}\nCountry: {country} - {flag}\n━━━━━ Other Details ━━━━━\nTime: {took}\nChecked By {fname}\n__Bot: @CardChkBot__**")
+                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Approved ✅**\n--Result--: **CVV!** [__Your card has insufficient fund.__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                 elif "Your card was declined." in ok:
                   wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                 else:
-                  wait.edit(f"**CC: `{cc}`\nStatus: Declined ❌\nResult: Generic Decline\nGateway: Stripe Auth\n━━━━━ Bin Data ━━━━━\nBin: {ab}\nType: {vendor} - {type} - {level}\nBank: {bank}\nCountry: {country} - {flag}\n━━━━━ Other Details ━━━━━\nTime: {took}\nChecked By {fname}\n__Bot: @CardChkBot__**")
+                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
             except Exception as e:
-                wait.edit(f"**CC: `{cc}`\nStatus: Error ⚠️\nResult: {e}\nGateway: Stripe Auth\n━━━━━ Bin Data ━━━━━\nBin: {ab}\nType: {vendor} - {type} - {level}\nBank: {bank}\nCountry: {country} - {flag}\n━━━━━ Other Details ━━━━━\nTime: {took}\nChecked By {fname}\n__Bot: @CardChkBot__**")
+                wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Card Error__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                  
 
 
