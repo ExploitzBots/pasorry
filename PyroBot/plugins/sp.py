@@ -171,7 +171,7 @@ def sp_cmd(client, message):
                 else:
                   wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
             except Exception as e:
-                wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Card Error__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{stook}**\n**Checked By {fname}**")
+                wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Card Error__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **Instantly**\n**Checked By {fname}**")
                  
 
 
