@@ -13,12 +13,12 @@ BOT_TOKEN = "5205589679:AAFlYLOb1TJ0uihGnCgWwASf6_8_i4ClEP0"
 
 if __name__ == "__main__" :
     print("Starting Bot...")
-    plugins = dict(root="PyroBot/plugins")
-    app = pyrogram.Client(
-        "Demon",
+    plugins = dict(root="Card/plugins")
+    b1 = pyrogram.Client(
+        "S1",
         bot_token=BOT_TOKEN,
         api_id=APP_ID,
         api_hash=API_HASH,
         plugins=plugins
     )
-    app.run()
+    b1.run()
