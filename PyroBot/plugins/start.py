@@ -38,7 +38,8 @@ def password(y):
        return ''.join(random.choice(string.ascii_lowercase) for x in range(y))
        
 password = (random_char(9))
-def chk_cmd(client, message):
+
+def sp_cmd(client, message):
     global msg_count, clock, wait
     # check if user in premium
     if message.from_user.id in PREMIUM or message.from_user.id in FREE or  message.from_user.id in OWNER:
@@ -51,7 +52,7 @@ def chk_cmd(client, message):
                 id_in_spam.insert(0, userid)
             else:pass
             fname = message.from_user.first_name
-            cc = message.text[len('/chk '):33]
+            cc = message.text[len('/sp '):33]
             splitter = cc.split('|')
             ccn = splitter[0]
             month = splitter[1]
@@ -59,7 +60,7 @@ def chk_cmd(client, message):
             cvc = splitter[3]
             ab  = ccn[0:6]
             
-            wait = message.reply_text("**Wait For Results...**")
+            wait = message.reply("**Wait For Results...**", reply_to_message_id=message.message_id)
             #####################################################################
             try:
                 bin = requests.get(f"https://bins-ws-api.deta.dev/api/{ccn}").json()
@@ -191,10 +192,10 @@ def counter_out(t1):
 
 
 # main fucntion
-@Client.on_message(filters.command(["chk", "chk@CardChkBot"], ok))
+@Client.on_message(filters.command(["sp", "sp@CardChkBot"], ok))
 def main(client, message):
     global msg_count, clock, t, id_in_spam
-    cc = message.text[len('/chk '):33]
+    cc = message.text[len('/sp '):33]
     splitter = cc.split('|')
     ccn = splitter[0]
     bb = ccn[0:6]
@@ -204,22 +205,22 @@ def main(client, message):
 
         if message.from_user.id in OWNER:
             ########################################
-            chk_cmd(client, message)  # adds user in id_in_spam
+            sp_cmd(client, message)  # adds user in id_in_spam
             ######################################
             # removes user from spam after time
         elif message.from_user.id in PREMIUM:
             ########################################
-            chk_cmd(client, message)  # adds user in id_in_spam
+            sp_cmd(client, message)  # adds user in id_in_spam
             ######################################
             counter_out(20)  # removes user from spam after time
         elif message.from_user.id in FREE:
             ########################################
-            chk_cmd(client, message)  # adds user in id_in_spam
+            sp_cmd(client, message)  # adds user in id_in_spam
             ######################################
             counter_out(57)  # removes user from spam after time
         else:
             FREE.append(message.from_user.id)
-            chk_cmd(client, message)  # adds user in id_in_spam
+            sp_cmd(client, message)  # adds user in id_in_spam
             ######################################
             counter_out(57)
 
