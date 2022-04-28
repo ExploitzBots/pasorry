@@ -1,2 +1,4 @@
 pyrogram
 python-decouple
+requests
+json
