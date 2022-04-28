@@ -1,6 +1,8 @@
 from pyrogram import Client, filters
+import request
+import json
 
-async def chk_cmd(client, message):
+def chk_cmd(client, message):
     global msg_count, clock, wait
     # check if user in premium
     if message.from_user.id in PREMIUM or message.from_user.id in FREE or  message.from_user.id in OWNER:
@@ -73,6 +75,6 @@ async def chk_cmd(client, message):
                 ye = json.loads(kya.text)
                 pm = ye['id']
 
-@Client.on_message(filters.command(["start"]))
+@Client.on_message(filters.command(["chk"]))
 async def start(client, message):
     await wait.edit_text(pm)
