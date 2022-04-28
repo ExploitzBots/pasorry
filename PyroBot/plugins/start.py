@@ -166,7 +166,7 @@ def sp_cmd(client, message):
                 elif "Your card has insufficient funds." in ok:
                   wait.edit(f"**CC: `{cc}`\nStatus: Approved ✅\nResult: CVV Matched\nGateway: Stripe Auth\n━━━━━ Bin Data ━━━━━\nBin: {ab}\nType: {vendor} - {type} - {level}\nBank: {bank}\nCountry: {country} - {flag}\n━━━━━ Other Details ━━━━━\nTime: {took}\nChecked By {fname}\n__Bot: @CardChkBot__**")
                 elif "Your card was declined." in ok:
-                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!"* [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
+                  wait.edit(f"**INPUT: `{cc}|@CardChkBot`**\n--Status--: **Declined ❌**\n--Result--: **Declined!** [__Your card was declined__]\n--Gate--: **Stripe Auth** (Public)\n\n**BinData**: `{ab} - {vendor} - {type} - {level} - {bank} - {country} - {flag}`\n\n--Time--: **{took}**\n**Checked By {fname}**")
                 else:
                   wait.edit(f"**CC: `{cc}`\nStatus: Declined ❌\nResult: Generic Decline\nGateway: Stripe Auth\n━━━━━ Bin Data ━━━━━\nBin: {ab}\nType: {vendor} - {type} - {level}\nBank: {bank}\nCountry: {country} - {flag}\n━━━━━ Other Details ━━━━━\nTime: {took}\nChecked By {fname}\n__Bot: @CardChkBot__**")
             except Exception as e:
