@@ -60,7 +60,7 @@ def sp_cmd(client, message):
             cvc = splitter[3]
             ab  = ccn[0:6]
             
-            wait = message.reply("**Checking CC**", reply_to_message_id=message.message_id)
+            wait = message.reply("**Checking CC...**", reply_to_message_id=message.message_id)
             #####################################################################
             try:
                 bin = requests.get(f"https://bins-ws-api.deta.dev/api/{ccn}").json()
@@ -224,7 +224,7 @@ def main(client, message):
             FREE.append(message.from_user.id)
             sp_cmd(client, message)  # adds user in id_in_spam
             ######################################
-            counter_out(57)
+            counter_out(60)
 
     else:
-        message.reply(f"**TADA $_$ [Anti Spam]**\n__Retry Again After {clock}'s__")
+        message.reply(f"**This is an ANTISPAM Timer $_$\n__Retry again in__ `{clock}s`**")
