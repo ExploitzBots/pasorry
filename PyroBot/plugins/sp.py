@@ -8,7 +8,7 @@ from pyrogram.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyb
 #keys
 
 
-# need variables
+# i need variables
 ok=["!",".","/",]
 
 bbin = ['529750', '515462', '401658', '543816', '519479', '489504', '415285', '539150', '483698', '522974', '404942']
